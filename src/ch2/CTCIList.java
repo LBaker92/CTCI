@@ -89,7 +89,30 @@ public class CTCIList {
 			curr = curr.getNext();
 		}
 	}
+	
+	public void printList() {
+		CTCINode ptr = head;
+		while (ptr != null) {
+			if (ptr.getNext() != null) {
+				System.out.print("[" + ptr.getData() + "]->");
+			} else {
+				System.out.print("[" + ptr.getData() + "]");
+			}
+			ptr = ptr.getNext();
+		}
+		System.out.println();
+	}
 
+	public CTCINode getNodeAt(int pos) {
+		CTCINode ptr = head;
+		for (int i = 1; i < pos; ++i) { // i = 1 because we are starting at the head already
+			if (ptr == null) {
+				return null;
+			}
+			ptr = ptr.getNext();
+		}
+		return ptr;
+	}
 	public CTCINode getHead() {
 		return head;
 	}
